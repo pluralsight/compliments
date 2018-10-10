@@ -39,6 +39,15 @@ spec:
             secretKeyRef:
               name: {{ template "compliments-bot.fullname" . }}
               key: SLACK_WEBHOOK
+          - name: REPLACE_OS_VARS
+            value: "true"
+          {{- if .Values.config.ERLANG_COOKIE }}
+          - name: ERLANG_COOKIE
+            value: {{ .Values.config.ERLANG_COOKIE }}
+          {{- else }}
+          - name: ERLANG_COOKIE
+            value: {{ randAlphaNum 32 }}
+          {{- end }}
           ports:
             - name: http
               containerPort: 4000

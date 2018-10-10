@@ -13,6 +13,7 @@ config:
   SLACK_SHARED_SECRET: ""
   SLACK_OAUTH_TOKEN: ""
   SLACK_WEBHOOK: ""
+  ERLANG_COOKIE: ""
 
 nameOverride: ""
 fullnameOverride: ""
